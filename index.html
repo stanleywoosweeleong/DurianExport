@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>榴莲输华通 · DurianExport</title>
+<meta name="description" content="从果园到中国：顺丰马来西亚鲜果出口流程、文件清单、航班与覆盖城市 · Orchard-to-China fresh durian export guide">
+<meta property="og:title" content="榴莲输华通 · DurianExport">
+<meta property="og:description" content="从果园到中国：出口流程、文件清单、航班与覆盖城市 · Orchard-to-China fresh durian export guide">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stanleywoosweeleong.github.io/DurianExport/">
+<meta property="og:image" content="https://stanleywoosweeleong.github.io/DurianExport/og-image.png">
+<meta name="theme-color" content="#7a1f2b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<style>
+:root{--paper:#faf7f1;--card:#fffdf8;--ink:#1a1a1a;--ink2:#3a3a3a;--red:#7a1f2b;--red2:#5e1620;--line:#d9d2c4;--ok:#1f7a3a;--amber:#b86800;--base:17px}
+html[data-size="L"]{--base:20px}
+html[data-size="XL"]{--base:23px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,"PingFang SC","Noto Sans SC","Segoe UI",Roboto,sans-serif;font-size:var(--base);line-height:1.55;font-weight:500;letter-spacing:.01em}
+b,strong,h1,h2,h3,summary{font-weight:700}
+@media (min-width:600px){:root{--base:18px}html[data-size="L"]{--base:21px}html[data-size="XL"]{--base:24px}}
+header{position:sticky;top:0;z-index:5;background:var(--red);color:#fff;padding:10px 12px;display:flex;align-items:center;gap:8px;padding-top:calc(10px + env(safe-area-inset-top))}
+header h1{font-size:1.1em;margin:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbtn{background:#fff;color:var(--red);border:0;border-radius:6px;font-weight:700;font-size:1em;padding:7px 10px;min-width:52px;min-height:40px}
+main{padding:12px 12px 90px;max-width:760px;margin:0 auto}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:2px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);z-index:5}
+nav button{flex:1;background:none;border:0;padding:8px 2px 7px;font-size:14px;line-height:1.2;color:var(--ink2);font-weight:600;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+nav button.on{color:var(--red)}
+section.view{display:none}section.view.on{display:block}
+h2{font-size:1.35em;line-height:1.3;margin:6px 0 10px;color:var(--red2)}
+h3{font-size:1.1em;line-height:1.3;margin:16px 0 8px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+.step{display:flex;gap:12px;align-items:flex-start}
+.num{flex:none;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;font-size:1.3em;display:flex;align-items:center;justify-content:center}
+.step ul{margin:6px 0 0;padding-left:22px}
+.step li{margin:5px 0}
+.step>div>b{font-size:1.08em}
+.ill{width:100%;height:auto;display:block;margin:6px 0 2px}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.btns button{border:2px solid var(--ink2);background:var(--card);color:var(--ink);border-radius:6px;padding:9px 13px;font-size:1em;font-weight:600;line-height:1.3;min-height:44px}
+.btns button small{font-size:.86em;display:block;margin-top:2px}
+.btns button.on{background:var(--red);border-color:var(--red);color:#fff}
+.btns.small button{padding:7px 11px;font-size:.94em;min-height:40px}
+.settings{border:2px solid var(--red);background:#fff8f3}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.chk:last-child{border-bottom:0}
+.chk input{width:28px;height:28px;flex:none;margin-top:1px;accent-color:var(--red)}
+.chk .t{flex:1}
+.chk .t b{display:block}
+.chk .t small{display:block;font-size:.92em;color:var(--ink2);margin-top:2px}
+.chk.done .t b{text-decoration:line-through;color:var(--ink2)}
+.tag{display:inline-block;font-size:.84em;font-weight:700;padding:2px 8px;line-height:1.4;vertical-align:middle;border-radius:4px;background:#eee7d8;color:var(--ink2);margin-left:4px}
+.tag.sf{background:var(--red);color:#fff}
+.tag.gov{background:#214e8a;color:#fff}
+.tag.exp{background:#5f7a24;color:#fff}
+.tag.cond{background:var(--amber);color:#fff}
+.prog{height:12px;background:#eee7d8;border-radius:6px;overflow:hidden;margin:6px 0}
+.prog i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.result{border-left:6px solid var(--ok);background:#f1f7ee;padding:10px 12px;border-radius:8px;margin:10px 0}
+.result.warn{border-color:var(--amber);background:#fdf3e3}
+.result b{font-size:1.1em;line-height:1.35;display:block}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.row>span:first-child{flex:0 0 38%;color:var(--ink2)}
+.row>b,.row>a{flex:1;text-align:right;overflow-wrap:anywhere}
+.row:last-child{border-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.city{background:var(--card);border:1.5px solid var(--line);border-radius:8px;padding:9px 11px;min-height:48px;display:flex;justify-content:space-between;align-items:center}
+.h24{color:var(--ok);font-weight:800}.h48{color:#214e8a;font-weight:800}.h72{color:var(--amber);font-weight:800}
+details{margin:8px 0}
+summary{cursor:pointer;font-weight:700;padding:10px 0;color:var(--red2);font-size:1.02em}
+input[type=text],textarea{width:100%;font:inherit;font-size:1em;padding:9px 11px;border:2px solid var(--ink2);border-radius:6px;background:#fff;color:var(--ink)}
+textarea{resize:vertical;line-height:1.45;text-align:left}
+input[type=number]{-moz-appearance:textfield}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
+.note{font-size:.94em;color:var(--ink2);margin:8px 0;line-height:1.5}
+#langpick{position:fixed;inset:0;background:var(--paper);z-index:20;display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;text-align:center}
+#langpick.on{display:flex}
+#langpick img{width:120px;border-radius:24px}
+#langpick h1{margin:0;font-size:1.5em}
+#langpick button{width:min(320px,90vw);font-size:1.2em;padding:14px;border:2px solid var(--red);background:#fff;color:var(--red);border-radius:10px;font-weight:700}
+.qr{text-align:center}.qr img{width:180px;height:180px;border:6px solid #fff;border-radius:8px}
+a{color:var(--red2);font-weight:700}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi div{background:var(--card);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;text-align:center}
+.kpi b{display:block;font-size:1.6em;line-height:1.2;color:var(--red)}
+.kpi small{font-size:.9em;color:var(--ink2);font-weight:600;display:block;margin-top:2px}
+</style>
+</head>
+<body>
+<div id="langpick">
+  <img src="icon-192.png" alt="">
+  <h1>榴莲输华通<br><span style="font-size:.75em">DurianExport</span></h1>
+  <button onclick="setLang('zh',true)">中文</button>
+  <button onclick="setLang('en',true)">English</button>
+  <button onclick="setLang('ms',true)">Malay</button>
+</div>
+
+<header>
+  <h1 data-i="title">榴莲输华通</h1>
+  <button class="hbtn" id="sizeBtn" onclick="cycleSize()">Aa</button>
+  <button class="hbtn" id="langBtn" onclick="cycleLang()">中文</button>
+</header>
+
+<main>
+<!-- ============ PROCESS ============ -->
+<section class="view on" id="v-flow">
+  <h2 data-i="flow.h"></h2>
+  <p class="note" data-i="flow.intro"></p>
+  <div class="kpi">
+    <div><b>2–5°C</b><small data-i="kpi.temp"></small></div>
+    <div><b>6<span style="font-size:.6em">/wk</span></b><small data-i="kpi.flights"></small></div>
+    <div><b>35 T</b><small data-i="kpi.cap"></small></div>
+    <div><b>~200</b><small data-i="kpi.cities"></small></div>
+  </div>
+  <div id="steps"></div>
+  <h3 data-i="flow.svc"></h3>
+  <div id="svcs"></div>
+  <details><summary data-i="flow.cats"></summary><div class="btns small" id="cats"></div></details>
+</section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section class="view" id="v-docs">
+  <h2 data-i="docs.h"></h2>
+  <div class="card settings">
+    <b data-i="docs.dry"></b>
+    <div class="btns"><button id="dry0" onclick="setDry(false)" data-i="no"></button><button id="dry1" onclick="setDry(true)" data-i="yes"></button></div>
+    <b data-i="docs.pulp"></b>
+    <div class="btns"><button id="pulp0" onclick="setPulp(false)" data-i="no"></button><button id="pulp1" onclick="setPulp(true)" data-i="yes"></button></div>
+  </div>
+  <div class="prog"><i id="prog"></i></div>
+  <div class="row"><span data-i="docs.progress"></span><b id="progTxt"></b></div>
+  <div class="btns small" id="docFilter"></div>
+  <div class="card" id="docList"></div>
+  <div class="btns"><button onclick="resetDocs()" data-i="docs.reset"></button></div>
+  <details><summary data-i="docs.labelH"></summary><div id="labelInfo"></div></details>
+</section>
+
+<!-- ============ FLIGHT PLANNER ============ -->
+<section class="view" id="v-plan">
+  <h2 data-i="plan.h"></h2>
+  <div class="card settings">
+    <b data-i="plan.day"></b>
+    <div class="btns" id="dayBtns"></div>
+    <b data-i="plan.city"></b>
+    <div class="btns" id="cityBtns"></div>
+  </div>
+  <div id="planOut"></div>
+  <div class="card">
+    <h3 style="margin-top:0" data-i="plan.airH"></h3>
+    <div class="row"><span data-i="plan.route"></span><b>KUL 21:50 → SZX 02:00 (+1)</b></div>
+    <div class="row"><span data-i="plan.days"></span><b data-i="plan.daysV"></b></div>
+    <div class="row"><span data-i="plan.own"></span><b data-i="plan.ownV"></b></div>
+    <div class="row"><span data-i="plan.other"></span><b data-i="plan.otherV"></b></div>
+    <p class="note" data-i="plan.otherCities"></p>
+  </div>
+  <p class="note" data-i="plan.caveat"></p>
+</section>
+
+<!-- ============ COVERAGE ============ -->
+<section class="view" id="v-cover">
+  <h2 data-i="cover.h"></h2>
+  <div class="card">
+    <b data-i="cover.rule"></b>
+    <p class="note" data-i="cover.rule2"></p>
+  </div>
+  <input type="text" id="citySearch" oninput="renderCities()" data-ph="cover.search">
+  <div class="btns small" id="hFilter"></div>
+  <div class="grid" id="cityGrid"></div>
+  <p class="note" data-i="cover.more"></p>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="view" id="v-about">
+  <h2 data-i="about.h"></h2>
+  <div class="card">
+    <div class="row"><span data-i="about.hotline"></span><a href="tel:1800333333">1800-33-3333</a></div>
+    <div class="row"><span data-i="about.hours"></span><b data-i="about.hoursV"></b></div>
+    <div class="row"><span data-i="about.web"></span><a href="https://www.sf-international.com/my/" target="_blank" rel="noopener">sf-international.com</a></div>
+  </div>
+  <details open><summary data-i="about.protoH"></summary><div id="proto"></div></details>
+  <details><summary data-i="about.srcH"></summary><div id="srcs"></div></details>
+  <p class="note" data-i="about.disc"></p>
+  <p class="note">v2026-1108</p>
+  <div class="card qr">
+    <img id="qrImg" src="" alt="QR">
+    <p class="note" style="margin:6px 0 0">stanleywoosweeleong.github.io/DurianExport/</p>
+    <b data-i="about.shareH" style="display:block;text-align:left;margin-top:12px"></b>
+    <textarea id="shareTxt" rows="5" style="margin-top:6px"></textarea>
+    <div class="btns" style="justify-content:center"><button class="on" onclick="share()" data-i="about.share"></button></div>
+  </div>
+</section>
+</main>
+
+<nav>
+  <button onclick="go('flow')" class="on" id="n-flow"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="17" r="3"/></svg><span data-i="nav.flow"></span></button>
+  <button onclick="go('docs')" id="n-docs"><svg viewBox="0 0 24 24"><path d="M9 3h7l4 4v14H9z"/><path d="M11 12l2 2 4-4"/><path d="M5 7v14h9"/></svg><span data-i="nav.docs"></span></button>
+  <button onclick="go('plan')" id="n-plan"><svg viewBox="0 0 24 24"><path d="M3 20h18M14 3l6 6-7 2-4 8-2-1 1-6-5-2 2-2 6 1z"/></svg><span data-i="nav.plan"></span></button>
+  <button onclick="go('cover')" id="n-cover"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i="nav.cover"></span></button>
+  <button onclick="go('about')" id="n-about"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span data-i="nav.about"></span></button>
+</nav>
+
+<script>
+/* ============ TRANSLATIONS ============ */
+const T={
+zh:{title:"榴莲输华通",yes:"是",no:"否",
+nav:{flow:"流程",docs:"文件",plan:"航班",cover:"覆盖",about:"关于"},
+kpi:{temp:"全程控温",flights:"每周货机直飞深圳",cap:"自有全货机运载量",cities:"到门模式覆盖城市"},
+flow:{h:"马来西亚鲜果寄递流程",intro:"根据顺丰马来西亚《全链路生鲜物流解决方案》整理。从果园落果到中国消费者手上，最快24小时（实际时效视海关清关情况而定）。",svc:"顺丰六大环节服务",cats:"支持的品类"},
+docs:{h:"出口所需文件",dry:"货件含干冰？",pulp:"货件为果肉 / 果泥 / 食品？",progress:"文件准备进度",reset:"清除勾选",labelH:"纸箱标签要求（输华鲜榴莲议定书）"},
+plan:{h:"航班与送达日估算",day:"交货给顺丰 / 送达吉隆坡机场的日子",city:"目的地城市（按时效）",airH:"航空资源",route:"自有全货机航线",days:"货机航班日",daysV:"周一、二、三、四、五、日（周六无航班）",own:"自有全货机",ownV:"马来西亚 → 深圳，35 吨",other:"非自营客机 / 货机",otherV:"50+ 吨",otherCities:"货机：海口、南宁、郑州、南京…　客机：北京、上海、广州、长沙、香港…",caveat:"* 日期按手册航班与时效档位推算，仅供安排采收与交货参考。实际时效需视海关清关情况而定；偏远地区时效顺延。交货截单时间请致电顺丰确认。"},
+cover:{h:"覆盖地区",rule:"深圳、东莞、广州、佛山、中山：12点前完成清关，24小时到",rule2:"3天时效覆盖中国161个城市；到门模式可覆盖中国约200个城市。",search:"搜索城市…",more:"列表为手册所列城市，包括但不限于；其他城市请向顺丰查询。"},
+about:{h:"关于",hotline:"顺丰马来西亚热线",hours:"服务时间",hoursV:"每天 08:30–17:30",web:"官网",protoH:"输华鲜榴莲：果园须知",srcH:"资料来源",shareH:"WhatsApp 分享文字（可修改）",share:"分享到 WhatsApp",disc:"本软件由榴莲果农整理，非顺丰官方软件。内容来自顺丰马来西亚宣传手册（2026）及公开资料，仅供参考；费用与时效以顺丰报价为准。"}
+},
+en:{title:"DurianExport",yes:"Yes",no:"No",
+nav:{flow:"Process",docs:"Documents",plan:"Flights",cover:"Coverage",about:"About"},
+kpi:{temp:"temperature, door to door",flights:"freighter flights to Shenzhen",cap:"own freighter capacity",cities:"cities with door delivery"},
+flow:{h:"Malaysia fresh fruit export process",intro:"Based on SF Express Malaysia's end-to-end fresh logistics brochure. From orchard drop to the Chinese consumer in as fast as 24 hours (actual time depends on customs clearance).",svc:"SF's six service stages",cats:"Supported product types"},
+docs:{h:"Documents required for export",dry:"Shipment contains dry ice?",pulp:"Shipment is pulp / purée / food product?",progress:"Documents ready",reset:"Clear ticks",labelH:"Carton label rules (fresh durian protocol with China)"},
+plan:{h:"Flight & delivery-day estimate",day:"Day you hand over to SF / deliver to KL airport",city:"Destination city (by transit tier)",airH:"Air resources",route:"Own freighter route",days:"Freighter flight days",daysV:"Mon, Tue, Wed, Thu, Fri, Sun (no Saturday flight)",own:"Own freighter",ownV:"Malaysia → Shenzhen, 35 t",other:"Partner passenger / cargo flights",otherV:"50+ t",otherCities:"Freighter: Haikou, Nanning, Zhengzhou, Nanjing…  Passenger: Beijing, Shanghai, Guangzhou, Changsha, Hong Kong…",caveat:"* Dates are worked out from the brochure's flight days and transit tiers, for planning harvest and handover only. Actual time depends on customs clearance; remote areas take longer. Confirm the handover cut-off time with SF."},
+cover:{h:"Coverage",rule:"Shenzhen, Dongguan, Guangzhou, Foshan, Zhongshan: clearance before 12:00 → delivered within 24 h",rule2:"3-day service covers 161 Chinese cities; door-to-door mode covers about 200 cities.",search:"Search city…",more:"Cities listed in the brochure, 'including but not limited to'; ask SF about other cities."},
+about:{h:"About",hotline:"SF Malaysia hotline",hours:"Service hours",hoursV:"Daily 08:30–17:30",web:"Website",protoH:"Fresh durian to China: what the orchard must know",srcH:"Sources",shareH:"WhatsApp message (editable)",share:"Share on WhatsApp",disc:"Compiled by a durian farmer; not an official SF app. Content from SF Express Malaysia's 2026 brochure and public sources, for reference only; rates and transit times are as quoted by SF."}
+},
+ms:{title:"DurianExport",yes:"Ya",no:"Tidak",
+nav:{flow:"Proses",docs:"Dokumen",plan:"Penerbangan",cover:"Liputan",about:"Info"},
+kpi:{temp:"suhu sepanjang perjalanan",flights:"penerbangan kargo ke Shenzhen",cap:"kapasiti pesawat kargo sendiri",cities:"bandar dengan penghantaran ke pintu"},
+flow:{h:"Proses eksport buah segar Malaysia",intro:"Berdasarkan risalah logistik segar hujung-ke-hujung SF Express Malaysia. Dari dusun ke pengguna di China secepat 24 jam (masa sebenar bergantung pada pelepasan kastam).",svc:"Enam peringkat perkhidmatan SF",cats:"Jenis produk yang disokong"},
+docs:{h:"Dokumen diperlukan untuk eksport",dry:"Kiriman mengandungi ais kering?",pulp:"Kiriman ialah isi / puri / produk makanan?",progress:"Dokumen sedia",reset:"Kosongkan tanda",labelH:"Peraturan label kotak (protokol durian segar ke China)"},
+plan:{h:"Anggaran penerbangan & hari tiba",day:"Hari serahan kepada SF / hantar ke lapangan terbang KL",city:"Bandar destinasi (ikut tahap masa)",airH:"Sumber penerbangan",route:"Laluan pesawat kargo sendiri",days:"Hari penerbangan kargo",daysV:"Isnin, Selasa, Rabu, Khamis, Jumaat, Ahad (tiada pada Sabtu)",own:"Pesawat kargo sendiri",ownV:"Malaysia → Shenzhen, 35 t",other:"Penerbangan penumpang / kargo rakan",otherV:"50+ t",otherCities:"Kargo: Haikou, Nanning, Zhengzhou, Nanjing…  Penumpang: Beijing, Shanghai, Guangzhou, Changsha, Hong Kong…",caveat:"* Tarikh dikira daripada hari penerbangan dan tahap masa dalam risalah, untuk perancangan tuai dan serahan sahaja. Masa sebenar bergantung pada pelepasan kastam; kawasan terpencil lebih lama. Sahkan masa tutup serahan dengan SF."},
+cover:{h:"Liputan",rule:"Shenzhen, Dongguan, Guangzhou, Foshan, Zhongshan: pelepasan sebelum 12:00 → tiba dalam 24 jam",rule2:"Perkhidmatan 3 hari meliputi 161 bandar di China; mod ke pintu meliputi kira-kira 200 bandar.",search:"Cari bandar…",more:"Bandar yang disenaraikan dalam risalah, 'termasuk tetapi tidak terhad kepada'; tanya SF untuk bandar lain."},
+about:{h:"Info",hotline:"Talian SF Malaysia",hours:"Waktu perkhidmatan",hoursV:"Setiap hari 08:30–17:30",web:"Laman web",protoH:"Durian segar ke China: apa yang dusun perlu tahu",srcH:"Sumber",shareH:"Mesej WhatsApp (boleh diedit)",share:"Kongsi di WhatsApp",disc:"Disusun oleh pekebun durian; bukan perisian rasmi SF. Kandungan daripada risalah SF Express Malaysia 2026 dan sumber awam, untuk rujukan sahaja; kadar dan masa mengikut sebut harga SF."}
+}};
+
+/* ============ CONTENT (3-lang arrays: zh,en,ms) ============ */
+const L=["zh","en","ms"];
+const STEPS=[
+ {t:["落果处理与包装","Harvest handling & packing","Pengendalian & pembungkusan"],
+  p:[["榴莲园落果后，进行选果、清洗及预冷处理","保温泡沫箱 / 铝箔箱 + 冰袋 / 干冰"],
+     ["After the fruit drops in the orchard: grade, wash and pre-cool","Insulated foam box / foil box + ice packs / dry ice"],
+     ["Selepas buah gugur di dusun: gred, cuci dan prasejuk","Kotak busa penebat / kotak foil + pek ais / ais kering"]],
+  svg:`<svg viewBox="0 0 320 110" class="ill"><rect x="10" y="50" width="90" height="50" rx="6" fill="#e9d9b8" stroke="#8c6a3a" stroke-width="3"/><rect x="10" y="50" width="90" height="10" fill="#cbb48a"/><ellipse cx="55" cy="45" rx="30" ry="24" fill="#8aa43c" stroke="#5f7a24" stroke-width="3"/><path d="M130 75h50" stroke="#7a1f2b" stroke-width="5"/><path d="M175 62l15 13-15 13" fill="none" stroke="#7a1f2b" stroke-width="5"/><rect x="200" y="30" width="105" height="70" rx="8" fill="#fff" stroke="#214e8a" stroke-width="3"/><rect x="212" y="42" width="81" height="46" rx="4" fill="#dbe8f7"/><text x="252" y="72" font-size="22" text-anchor="middle" fill="#214e8a" font-weight="700">❄ 2–5°C</text></svg>`},
+ {t:["机场提货配送","Airport pickup & delivery","Pengambilan & penghantaran ke lapangan terbang"],
+  p:[["客户自行送达机场 / 顺丰上门提货运送至吉隆坡国际机场","顺丰协助出口报关"],
+     ["Deliver to the airport yourself, or SF collects and trucks to KLIA","SF assists with export customs declaration"],
+     ["Hantar sendiri ke lapangan terbang, atau SF ambil dan bawa ke KLIA","SF bantu pengisytiharan kastam eksport"]],
+  svg:`<svg viewBox="0 0 320 110" class="ill"><rect x="15" y="45" width="110" height="45" rx="6" fill="#1a1a1a"/><rect x="125" y="60" width="40" height="30" rx="4" fill="#1a1a1a"/><circle cx="45" cy="95" r="10" fill="#555"/><circle cx="145" cy="95" r="10" fill="#555"/><text x="70" y="77" font-size="20" fill="#fff" font-weight="800" text-anchor="middle">SF</text><path d="M190 70h40" stroke="#7a1f2b" stroke-width="5"/><path d="M225 57l15 13-15 13" fill="none" stroke="#7a1f2b" stroke-width="5"/><path d="M255 85h60M265 85v-30h40v30" fill="none" stroke="#214e8a" stroke-width="3"/><path d="M285 55v-20l-12 8M285 35l12 8" fill="none" stroke="#214e8a" stroke-width="3"/></svg>`},
+ {t:["空运至深圳","Air freight to Shenzhen","Penerbangan ke Shenzhen"],
+  p:[["航班：吉隆坡 21:50 → 深圳 次日 02:00","全程控温 2–5°C"],
+     ["Flight: Kuala Lumpur 21:50 → Shenzhen 02:00 next day","Temperature held at 2–5°C throughout"],
+     ["Penerbangan: Kuala Lumpur 21:50 → Shenzhen 02:00 esok","Suhu dikekalkan 2–5°C sepanjang perjalanan"]],
+  svg:`<svg viewBox="0 0 320 110" class="ill"><text x="20" y="95" font-size="20" font-weight="700" fill="#1a1a1a">KUL 21:50</text><text x="200" y="40" font-size="20" font-weight="700" fill="#1a1a1a">SZX 02:00</text><path d="M30 75 Q160 -10 290 50" fill="none" stroke="#7a1f2b" stroke-width="3" stroke-dasharray="8 6"/><g transform="translate(150 25) rotate(-15)"><path d="M-22 5L22-6 20 0 -4 11z" fill="#1a1a1a"/><path d="M-2 1L4-18 10-15z" fill="#1a1a1a"/></g></svg>`},
+ {t:["抵达清关","Arrival & import clearance","Tiba & pelepasan import"],
+  p:[["落地深圳后进行进口清关与检验检疫","12点前完成清关：深圳、东莞、广州、佛山、中山 24小时到"],
+     ["After landing in Shenzhen: import clearance and quarantine inspection","Clearance before 12:00: Shenzhen, Dongguan, Guangzhou, Foshan, Zhongshan delivered within 24 h"],
+     ["Selepas mendarat di Shenzhen: pelepasan import dan pemeriksaan kuarantin","Pelepasan sebelum 12:00: Shenzhen, Dongguan, Guangzhou, Foshan, Zhongshan tiba dalam 24 jam"]],
+  svg:`<svg viewBox="0 0 320 110" class="ill"><rect x="20" y="20" width="110" height="75" rx="8" fill="#fff" stroke="#214e8a" stroke-width="3"/><path d="M40 45h70M40 60h70M40 75h45" stroke="#214e8a" stroke-width="4"/><circle cx="110" cy="80" r="14" fill="#1f7a3a"/><path d="M103 80l5 5 9-10" fill="none" stroke="#fff" stroke-width="3"/><path d="M160 58h40" stroke="#7a1f2b" stroke-width="5"/><path d="M195 45l15 13-15 13" fill="none" stroke="#7a1f2b" stroke-width="5"/><rect x="225" y="35" width="75" height="45" rx="6" fill="#e9d9b8" stroke="#8c6a3a" stroke-width="3"/><text x="262" y="65" font-size="18" text-anchor="middle" fill="#214e8a" font-weight="700">❄</text></svg>`},
+ {t:["最后一公里配送","Last-mile delivery","Penghantaran batu terakhir"],
+  p:[["通过顺丰配送至中国各地","支持 B2B 商超门店配送","支持门到门 B2C 电商配送（抖音、拼多多、天猫）"],
+     ["SF delivers across China","B2B delivery to supermarkets and stores","Door-to-door B2C e-commerce delivery (Douyin, Pinduoduo, Tmall)"],
+     ["SF hantar ke seluruh China","Penghantaran B2B ke pasar raya dan kedai","Penghantaran e-dagang B2C ke pintu (Douyin, Pinduoduo, Tmall)"]],
+  svg:`<svg viewBox="0 0 320 110" class="ill"><rect x="20" y="40" width="80" height="45" rx="6" fill="#1a1a1a"/><rect x="100" y="55" width="30" height="30" rx="4" fill="#1a1a1a"/><circle cx="45" cy="90" r="9" fill="#555"/><circle cx="110" cy="90" r="9" fill="#555"/><path d="M150 65h35" stroke="#7a1f2b" stroke-width="5"/><path d="M180 52l15 13-15 13" fill="none" stroke="#7a1f2b" stroke-width="5"/><path d="M215 90v-40l30-20 30 20v40z" fill="#fff" stroke="#214e8a" stroke-width="3"/><rect x="237" y="65" width="16" height="25" fill="#214e8a"/><path d="M280 90v-30h30v30" fill="#fff" stroke="#214e8a" stroke-width="3"/></svg>`}
+];
+const SVCS=[
+ ["01",["货物准备 · 包装服务","Cargo preparation · packing","Persediaan kargo · pembungkusan"],[["铝箔箱","泡沫箱","保温袋"],["Foil box","Foam box","Insulated bag"],["Kotak foil","Kotak busa","Beg penebat"]]],
+ ["02",["单证准备 · 文件服务","Documents · paperwork service","Dokumen · perkhidmatan kertas kerja"],[["文件审核","文件打印","报关支持"],["Document review","Document printing","Customs declaration support"],["Semakan dokumen","Cetakan dokumen","Sokongan pengisytiharan kastam"]]],
+ ["03",["货物交接 · 提货服务","Handover · pickup service","Serahan · perkhidmatan ambil"],[["冷链车上门提货（按箱 / 按车）","保温笼车小批量提货服务","机场外提货交接服务"],["Reefer truck pickup (per box / per truck)","Insulated cage-truck pickup for small lots","Off-airport pickup and handover"],["Ambilan lori sejuk (ikut kotak / lori)","Ambilan lori sangkar penebat untuk lot kecil","Ambilan dan serahan di luar lapangan terbang"]]],
+ ["04",["待运阶段 · 机场操作及运输配套","Pre-flight · airport handling","Pra-penerbangan · pengendalian lapangan terbang"],[["免费协助申请机场通行证 (PASS)","免费代取植物检疫证书 (Phyto)","更换冰袋","补打更换标签面单","冷库 / 冷车临时储存（按需）"],["Free help applying for airport pass (PASS)","Free collection of phytosanitary certificate (Phyto)","Ice-pack replacement","Reprinting / replacing labels and waybills","Cold-room / reefer temporary storage (on request)"],["Bantuan percuma mohon pas lapangan terbang (PASS)","Ambil sijil fitosanitari (Phyto) secara percuma","Tukar pek ais","Cetak semula / tukar label dan waybill","Simpanan sementara bilik sejuk / lori sejuk (atas permintaan)"]]],
+ ["05",["货物抵达 · 目的地服务","Arrival · destination service","Ketibaan · perkhidmatan destinasi"],[["进口清关","协助分货","贴单换单"],["Import clearance","Help splitting consignments","Re-labelling / waybill exchange"],["Pelepasan import","Bantu pecah konsainan","Label semula / tukar waybill"]]],
+ ["06",["最终交付 · 末端配送","Final delivery · last mile","Penghantaran akhir · batu terakhir"],[["二程飞机转运","专车直达","冷车直达"],["Second-leg air transfer","Dedicated vehicle direct","Reefer truck direct"],["Pindahan udara kaki kedua","Kenderaan khas terus","Lori sejuk terus"]]]
+];
+const CATS=[["榴莲鲜果 / 冻果","Fresh / frozen durian","Durian segar / beku"],["菠萝蜜鲜果","Fresh jackfruit","Nangka segar"],["榴莲冰皮月饼","Durian snow-skin mooncake","Kuih bulan kulit salji durian"],["榴莲冻果肉果泥","Frozen durian pulp / purée","Isi / puri durian beku"],["燕窝","Bird's nest","Sarang burung"],["海鲜类","Seafood","Makanan laut"]];
+const EXTRA=[["供应链金融服务","Supply-chain finance","Kewangan rantaian bekalan"],["溯源服务","Traceability service","Perkhidmatan kebolehkesanan"]];
+
+/* issuer: exp=exporter, gov=government, sf=SF; cond: dry / pulp */
+const DOCS=[
+ {a:"CI",n:["商业发票","Commercial Invoice","Invois Komersial"],by:"exp"},
+ {a:"PL",n:["装箱单","Packing List","Senarai Pembungkusan"],by:"exp"},
+ {a:"CT",n:["合同","Contract","Kontrak"],by:"exp"},
+ {a:"Phyto",n:["植物检疫证书","Phytosanitary Certificate","Sijil Fitosanitari"],by:"gov",o:["马来西亚农业部（植物保护部门）· 顺丰可免费代取","Dept. of Agriculture Malaysia (Plant Protection) · SF can collect it free","Jabatan Pertanian Malaysia (Perlindungan Tumbuhan) · SF boleh ambil percuma"]},
+ {a:"FAMA COC",n:["农产品出口合格证","Certificate of Conformity of Agricultural Produce for Export","Sijil Pematuhan Hasil Pertanian untuk Eksport"],by:"gov",o:["联邦农业市场管理局 FAMA","Federal Agricultural Marketing Authority (FAMA)","Lembaga Pemasaran Pertanian Persekutuan (FAMA)"]},
+ {a:"MAQIS ePERMIT",n:["出口许可证","Export Permit","Permit Eksport"],by:"gov",o:["马来西亚检疫检验局 MAQIS","Malaysian Quarantine and Inspection Services (MAQIS)","Perkhidmatan Kuarantin dan Pemeriksaan Malaysia (MAQIS)"]},
+ {a:"HC",n:["卫生证","Health Certificate","Sijil Kesihatan"],by:"gov",cond:"pulp",o:["马来西亚卫生部 · 仅适用于果肉、果泥和食品","Ministry of Health Malaysia · fruit pulp, purée and food products only","Kementerian Kesihatan Malaysia · isi, puri dan produk makanan sahaja"]},
+ {a:"Form-E",n:["产地证书","Certificate of Origin (Form E)","Sijil Asal (Borang E)"],by:"gov",o:["马来西亚投资、贸易和工业部 MITI","Ministry of Investment, Trade and Industry (MITI)","Kementerian Pelaburan, Perdagangan dan Industri (MITI)"]},
+ {a:"MAWB",n:["航空主体单","Master Airway Bill","Bil Udara Induk"],by:"sf"},
+ {a:"K2",n:["出口申报单","Customs Export Declaration Form","Borang Pengisytiharan Eksport Kastam"],by:"sf"},
+ {a:"Label",n:["中英文标签","Chinese–English Label","Label Cina–Inggeris"],by:"exp"},
+ {a:"Label",n:["干冰标签","Dry Ice Label","Label Ais Kering"],by:"exp",cond:"dry"},
+ {a:"Label",n:["9类危险品标签","Miscellaneous Dangerous Goods (Class 9) Label","Label Barang Berbahaya Kelas 9"],by:"exp",cond:"dry"}
+];
+const BY={exp:["出口商","Exporter","Pengeksport"],gov:["政府机构","Government","Kerajaan"],sf:["马来顺丰","SF Malaysia","SF Malaysia"]};
+const ALLW=["全部","All","Semua"];
+
+const CITIES=[["深圳","Shenzhen",24],["东莞","Dongguan",24],["广州","Guangzhou",24],["佛山","Foshan",24],["中山","Zhongshan",24],
+ ["北京","Beijing",48],["上海","Shanghai",48],["长沙","Changsha",48],["成都","Chengdu",48],["哈尔滨","Harbin",48],["乌鲁木齐","Ürümqi",72],
+ ["杭州","Hangzhou",0],["沈阳","Shenyang",0],["无锡","Wuxi",0],["大连","Dalian",0],["长春","Changchun",0],["呼和浩特","Hohhot",0],["石家庄","Shijiazhuang",0],["武汉","Wuhan",0],["贵阳","Guiyang",0],["济南","Jinan",0],["青岛","Qingdao",0],["潍坊","Weifang",0],["太原","Taiyuan",0],["西安","Xi'an",0],["昆明","Kunming",0],["天津","Tianjin",0],["合肥","Hefei",0],["郑州","Zhengzhou",0],["重庆","Chongqing",0],["南京","Nanjing",0],["海口","Haikou",0],["南宁","Nanning",0],["香港","Hong Kong",0]];
+const TIERW={24:["24小时档","24 h tier","Tahap 24 jam"],48:["48小时档","48 h tier","Tahap 48 jam"],72:["72小时档","72 h tier","Tahap 72 jam"],0:["3天时效 / 到门","3-day / door","3 hari / ke pintu"]};
+
+const DAYS=[["周一","Mon","Isn"],["周二","Tue","Sel"],["周三","Wed","Rab"],["周四","Thu","Kha"],["周五","Fri","Jum"],["周六","Sat","Sab"],["周日","Sun","Ahd"]];
+const FLIGHTDAYS=[1,1,1,1,1,0,1]; // Mon..Sun
+
+const PROTO={
+zh:`<ul><li>2024年6月中马签署鲜榴莲输华议定书，同年8月24日起马来西亚鲜榴莲正式出口中国。此前只能出口冷冻整果、果肉和果泥。</li><li>出口鲜榴莲必须来自向马来西亚农业及粮食安全部注册、并获中国海关总署 (GACC) 批准的果园和包装厂；果园须持有 MyGAP 认证。</li><li>发现检疫性有害生物、泥土或植物残体，或来自未注册果园/包装厂，可能导致整批退运、拒绝入境甚至季节性暂停。</li><li>议定书要求 "树熟落果" 的猫山王等品种也须在自然落果前采收并控制成熟度；马方正在制定树上采摘的标准作业程序。</li></ul>`,
+en:`<ul><li>Malaysia and China signed the fresh-durian protocol in June 2024; exports of fresh durian began on 24 August 2024. Before that only frozen whole fruit, pulp and purée were allowed.</li><li>Fresh durian must come from orchards and packing houses registered with Malaysia's Ministry of Agriculture and Food Security and approved by China's GACC; orchards need MyGAP certification.</li><li>Quarantine pests, soil or plant debris, or fruit from unregistered orchards/packing houses can lead to the whole consignment being refused and even seasonal suspension.</li><li>Industry guidance says premium varieties such as Musang King should be harvested before they drop naturally; Malaysia is drafting standard procedures for tree-picking.</li></ul>`,
+ms:`<ul><li>Malaysia dan China menandatangani protokol durian segar pada Jun 2024; eksport durian segar bermula 24 Ogos 2024. Sebelum itu hanya buah beku, isi dan puri dibenarkan.</li><li>Durian segar mesti datang dari dusun dan rumah pembungkusan yang berdaftar dengan Kementerian Pertanian dan Keterjaminan Makanan Malaysia serta diluluskan GACC China; dusun perlu pensijilan MyGAP.</li><li>Perosak kuarantin, tanah atau sisa tumbuhan, atau buah dari dusun/rumah pembungkusan tidak berdaftar boleh menyebabkan seluruh konsainan ditolak malah penggantungan bermusim.</li><li>Panduan industri menyatakan varieti premium seperti Musang King perlu dituai sebelum gugur secara semula jadi; Malaysia sedang menggubal prosedur petik di pokok.</li></ul>`};
+const LABEL={
+zh:`<ul><li>纸箱以英文标明：水果名称、品种、出口国、产地、注册果园及包装厂名称或代码。</li><li>箱子 / 栈板须标注 "Exported to the People's Republic of China"。</li><li>手册要求的中英文标签由出口商提供；含干冰货件另加干冰标签与9类危险品标签。</li></ul><p class="note">来源：中马鲜榴莲输华议定书要求（Tridge 市场综述整理）。</p>`,
+en:`<ul><li>Cartons are labelled in English with fruit name, variety, exporting country, place of production, and the registered orchard and packing-house name or code.</li><li>Boxes / pallets are marked "Exported to the People's Republic of China".</li><li>The brochure's Chinese–English label is supplied by the exporter; dry-ice shipments also need a dry-ice label and a Class 9 dangerous-goods label.</li></ul><p class="note">Source: Malaysia–China fresh durian protocol requirements (Tridge market overview).</p>`,
+ms:`<ul><li>Kotak dilabel dalam bahasa Inggeris: nama buah, varieti, negara pengeksport, tempat pengeluaran, serta nama atau kod dusun dan rumah pembungkusan berdaftar.</li><li>Kotak / palet ditanda "Exported to the People's Republic of China".</li><li>Label Cina–Inggeris dalam risalah disediakan pengeksport; kiriman ais kering juga perlu label ais kering dan label barang berbahaya Kelas 9.</li></ul><p class="note">Sumber: keperluan protokol durian segar Malaysia–China (ringkasan pasaran Tridge).</p>`};
+const SRCS=`<ul>
+<li>SF Express Malaysia — 《顺丰马来西亚 全链路生鲜物流解决方案》brochure, 2026 (process, documents, flights, coverage, services)</li>
+<li><a href="https://www.sf-international.com/my/" target="_blank" rel="noopener">sf-international.com/my</a> — hotline 1800 33 3333, Mon–Sun 08:30–17:30; press release "SF Express Malaysia: Redefining Durian Exports to China"</li>
+<li><a href="https://abxexpress.com.my/Home/News5" target="_blank" rel="noopener">ABX Express (SF Malaysia affiliate)</a> — flights six days a week, Day+2 delivery, end-to-end tracking, brokerage</li>
+<li><a href="https://www.tridge.com/market-overview/fresh-durian/MY" target="_blank" rel="noopener">Tridge — Fresh durian, Malaysia</a> — protocol dates, orchard/packing-house registration, carton labelling</li>
+<li><a href="https://www.freshplaza.com/asia/article/9855034/" target="_blank" rel="noopener">FreshPlaza</a> — DOA/GACC approval, MyGAP, harvest-before-drop guidance</li>
+</ul>`;
+
+/* ============ STATE ============ */
+let lang=localStorage.getItem("de.lang");
+let size=localStorage.getItem("de.size")||"M";
+let dry=localStorage.getItem("de.dry")==="1";
+let pulp=localStorage.getItem("de.pulp")==="1";
+let ticks=JSON.parse(localStorage.getItem("de.ticks")||"{}");
+let docFilter="all";
+let planDay=null, planTier=null, hFilter=0;
+const li=()=>L.indexOf(lang);
+const tr=(k)=>k.split(".").reduce((o,p)=>o&&o[p],T[lang])||"";
+
+function setLang(l,fromPick){lang=l;localStorage.setItem("de.lang",l);document.getElementById("langpick").classList.remove("on");document.documentElement.lang=l==="ms"?"ms":l;render();}
+function cycleLang(){setLang(L[(li()+1)%3]);}
+function cycleSize(){size=size==="M"?"L":size==="L"?"XL":"M";localStorage.setItem("de.size",size);applySize();}
+function applySize(){document.documentElement.dataset.size=size;}
+function go(v){document.querySelectorAll("section.view").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.id==="n-"+v));window.scrollTo(0,0);}
+function setDry(v){dry=v;localStorage.setItem("de.dry",v?"1":"0");renderDocs();}
+function setPulp(v){pulp=v;localStorage.setItem("de.pulp",v?"1":"0");renderDocs();}
+function resetDocs(){ticks={};localStorage.setItem("de.ticks","{}");renderDocs();}
+
+function render(){
+  const i=li();
+  document.getElementById("langBtn").textContent=["中文","EN","BM"][i];
+  document.querySelectorAll("[data-i]").forEach(e=>{e.textContent=tr(e.dataset.i);});
+  document.querySelectorAll("[data-ph]").forEach(e=>{e.placeholder=tr(e.dataset.ph);});
+  document.title=tr("title")+(lang==="zh"?" · DurianExport":"");
+  document.getElementById("steps").innerHTML=STEPS.map((s,n)=>`<div class="card"><div class="step"><div class="num">${n+1}</div><div style="flex:1"><b>${s.t[i]}</b>${s.svg}<ul>${s.p[i].map(x=>`<li>${x}</li>`).join("")}</ul></div></div></div>`).join("");
+  document.getElementById("svcs").innerHTML=SVCS.map(s=>`<details><summary>${s[0]} · ${s[1][i]}</summary><ul>${s[2][i].map(x=>`<li>${x}</li>`).join("")}</ul></details>`).join("")+
+    `<p class="note">${lang==="zh"?"其他增值服务：":lang==="en"?"Other value-added services: ":"Perkhidmatan nilai tambah lain: "}${EXTRA.map(e=>e[i]).join(" · ")}</p>`;
+  document.getElementById("cats").innerHTML=CATS.map(c=>`<button class="on" disabled style="opacity:1">${c[i]}</button>`).join("");
+  renderDocs();
+  document.getElementById("labelInfo").innerHTML=LABEL[lang];
+  renderPlan();
+  renderCities();
+  document.getElementById("proto").innerHTML=PROTO[lang];
+  document.getElementById("srcs").innerHTML=SRCS;
+  resetShare();
+}
+
+function renderDocs(){
+  const i=li();
+  document.getElementById("dry0").classList.toggle("on",!dry);document.getElementById("dry1").classList.toggle("on",dry);
+  document.getElementById("pulp0").classList.toggle("on",!pulp);document.getElementById("pulp1").classList.toggle("on",pulp);
+  const active=DOCS.filter(d=>!d.cond||(d.cond==="dry"&&dry)||(d.cond==="pulp"&&pulp));
+  const done=active.filter((d,k)=>ticks[key(d)]).length;
+  document.getElementById("prog").style.width=(active.length?done/active.length*100:0)+"%";
+  document.getElementById("progTxt").textContent=`${done} / ${active.length}`;
+  const fs=[["all",ALLW[i]],["exp",BY.exp[i]],["gov",BY.gov[i]],["sf",BY.sf[i]]];
+  document.getElementById("docFilter").innerHTML=fs.map(f=>`<button class="${docFilter===f[0]?"on":""}" onclick="docFilter='${f[0]}';renderDocs()">${f[1]}</button>`).join("");
+  const shown=active.filter(d=>docFilter==="all"||d.by===docFilter);
+  document.getElementById("docList").innerHTML=shown.map(d=>{const k=key(d);const on=!!ticks[k];
+    return `<label class="chk ${on?"done":""}"><input type="checkbox" ${on?"checked":""} onchange="ticks['${k}']=this.checked;localStorage.setItem('de.ticks',JSON.stringify(ticks));renderDocs()"><div class="t"><b>${d.n[i]} <span class="tag ${d.by}">${BY[d.by][i]}</span>${d.cond?`<span class="tag cond">${d.cond==="dry"?(lang==="zh"?"含干冰":lang==="en"?"dry ice":"ais kering"):(lang==="zh"?"果肉/食品":lang==="en"?"pulp/food":"isi/makanan")}</span>`:""}</b><small>${d.a}${d.o?" · "+d.o[i]:""}</small></div></label>`;}).join("")||`<p class="note">—</p>`;
+}
+const key=d=>d.a+"|"+d.n[1];
+
+function renderPlan(){
+  const i=li();
+  document.getElementById("dayBtns").innerHTML=DAYS.map((d,n)=>`<button class="${planDay===n?"on":""}" onclick="planDay=${n};renderPlan()">${d[i]}</button>`).join("");
+  const tiers=[24,48,72,0];
+  document.getElementById("cityBtns").innerHTML=tiers.map(t=>`<button class="${planTier===t?"on":""}" onclick="planTier=${t};renderPlan()">${TIERW[t][i]}<small>${CITIES.filter(c=>c[2]===t).slice(0,4).map(c=>lang==="zh"?c[0]:c[1]).join(" · ")}${t===0?"…":""}</small></button>`).join("");
+  const out=document.getElementById("planOut");
+  if(planDay===null||planTier===null){out.innerHTML=`<p class="note">${lang==="zh"?"选择交货日与目的地后显示估算。":lang==="en"?"Pick a handover day and a destination tier to see the estimate.":"Pilih hari serahan dan tahap destinasi untuk melihat anggaran."}</p>`;return;}
+  let d=planDay, wait=0;
+  while(!FLIGHTDAYS[d]){d=(d+1)%7;wait++;}
+  const dn=n=>DAYS[(n)%7][i];
+  const arr=(d+1)%7;
+  const off=planTier===24?1:planTier===48?2:planTier===72?3:3;
+  const dest=(d+off)%7;
+  const rows=[];
+  if(wait){rows.push(`<div class="result warn"><b>${lang==="zh"?`${dn(planDay)}无货机航班 — 先冷藏，等 ${dn(d)} 航班`:lang==="en"?`No freighter on ${dn(planDay)} — keep the fruit cold and ship on ${dn(d)}`:`Tiada pesawat kargo pada ${dn(planDay)} — simpan sejuk dan hantar pada ${dn(d)}`}</b><div class="note">${lang==="zh"?"顺丰可按需提供冷库 / 冷车临时储存。":lang==="en"?"SF offers cold-room / reefer temporary storage on request.":"SF menyediakan simpanan sementara bilik sejuk / lori sejuk atas permintaan."}</div></div>`);}
+  else rows.push(`<div class="result"><b>${lang==="zh"?`当天 ${dn(d)} 即可上货机`:lang==="en"?`Ships on the ${dn(d)} freighter`:`Dihantar dengan pesawat kargo ${dn(d)}`}</b><div class="note">${lang==="zh"?"交货当天 21:50 起飞。截单时间请先致电顺丰确认。":lang==="en"?"Departs 21:50 the same day. Confirm the cut-off time with SF first.":"Berlepas 21:50 hari yang sama. Sahkan masa tutup dengan SF dahulu."}</div></div>`);
+  rows.push(`<div class="card"><div class="row"><span>✈ ${lang==="zh"?"起飞 吉隆坡":lang==="en"?"Depart KUL":"Berlepas KUL"}</span><b>${dn(d)} 21:50</b></div><div class="row"><span>🛬 ${lang==="zh"?"抵达 深圳":lang==="en"?"Arrive SZX":"Tiba SZX"}</span><b>${dn(arr)} 02:00</b></div><div class="row"><span>📦 ${lang==="zh"?"预计送达目的地":lang==="en"?"Estimated delivery":"Anggaran tiba"}</span><b>${dn(dest)}${planTier?` (${planTier}H)`:""}</b></div></div>`);
+  if(planTier===24)rows.push(`<p class="note">${lang==="zh"?"条件：12点前完成清关。":lang==="en"?"Condition: customs clearance completed before 12:00.":"Syarat: pelepasan kastam selesai sebelum 12:00."}</p>`);
+  rows.push(`<p class="note">${lang==="zh"?"手册同时注明：最快 1–2 天送达；偏远地区时效顺延。":lang==="en"?"The brochure also states: fastest 1–2 days; remote areas take longer.":"Risalah juga menyatakan: secepat 1–2 hari; kawasan terpencil lebih lama."}</p>`);
+  out.innerHTML=rows.join("");
+}
+
+function renderCities(){
+  const i=li();
+  const fs=[[0,ALLW[i]],[24,"24H"],[48,"48H"],[72,"72H"]];
+  document.getElementById("hFilter").innerHTML=fs.map(f=>`<button class="${hFilter===f[0]?"on":""}" onclick="hFilter=${f[0]};renderCities()">${f[1]}</button>`).join("");
+  const q=(document.getElementById("citySearch").value||"").trim().toLowerCase();
+  const list=CITIES.filter(c=>(!hFilter||c[2]===hFilter)&&(!q||c[0].includes(q)||c[1].toLowerCase().includes(q)));
+  document.getElementById("cityGrid").innerHTML=list.map(c=>`<div class="city"><span>${lang==="zh"?c[0]:c[1]+"<br><small>"+c[0]+"</small>"}</span><span class="h${c[2]||''}">${c[2]?c[2]+"H":"3D"}</span></div>`).join("")||`<p class="note">—</p>`;
+}
+
+/* ============ SHARE ============ */
+const SHARE_URL="https://stanleywoosweeleong.github.io/DurianExport/";
+function defaultShare(){
+  const body=lang==="zh"?"榴莲输华通 DurianExport\n从果园到中国：顺丰马来西亚鲜榴莲出口流程、文件清单、航班与覆盖城市。可离线使用。"
+    :lang==="en"?"DurianExport 榴莲输华通\nOrchard-to-China fresh durian export guide: SF Malaysia process, document checklist, flights and coverage. Works offline."
+    :"DurianExport 榴莲输华通\nPanduan eksport durian segar dari dusun ke China: proses SF Malaysia, senarai dokumen, penerbangan dan liputan. Boleh guna luar talian.";
+  return body+"\n"+SHARE_URL;
+}
+function resetShare(){document.getElementById("shareTxt").value=defaultShare();}
+function share(){
+  const txt=document.getElementById("shareTxt").value.trim()||defaultShare();
+  window.open("https://wa.me/?text="+encodeURIComponent(txt),"_blank");
+}
+
+document.getElementById("qrImg").src="data:image/png;base64,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";
+applySize();
+if(!lang){document.getElementById("langpick").classList.add("on");lang="zh";render();}
+else setLang(lang);
+if("serviceWorker" in navigator&&location.protocol!=="file:")navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
