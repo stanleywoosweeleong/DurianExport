@@ -6,8 +6,10 @@ self.addEventListener("activate",e=>{e.waitUntil(self.clients.claim());});
 self.addEventListener("fetch",e=>{
   const req=e.request;
   if(req.method!=="GET"||new URL(req.url).origin!==location.origin)return;
+  const net=fetch(req);
+  // Keep the worker alive until the offline copy is written; a failed write must not break the response.
+  e.waitUntil(net.then(r=>{if(!r.ok)return;const cp=r.clone();return caches.open(CACHE).then(c=>c.put(req,cp));}).catch(()=>{}));
   e.respondWith(
-    fetch(req).then(r=>{if(r.ok){const cp=r.clone();caches.open(CACHE).then(c=>c.put(req,cp));}return r;})
-    .catch(()=>caches.match(req,{ignoreSearch:true}).then(r=>r||(req.mode==="navigate"?caches.match("./index.html"):Response.error())))
+    net.catch(()=>caches.match(req,{ignoreSearch:true}).then(r=>r||(req.mode==="navigate"?caches.match("./index.html"):Response.error())))
   );
 });

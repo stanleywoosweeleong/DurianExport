@@ -321,24 +321,32 @@ const SRCS=`<ul>
 </ul>`;
 
 /* ============ STATE ============ */
-let lang=localStorage.getItem("de.lang");
-let size=localStorage.getItem("de.size")||"M";
-let dry=localStorage.getItem("de.dry")==="1";
-let pulp=localStorage.getItem("de.pulp")==="1";
-let ticks=JSON.parse(localStorage.getItem("de.ticks")||"{}");
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function loadTicks(){
+  try{const v=JSON.parse(lsGet("de.ticks")||"{}");
+    if(v&&typeof v==="object"&&!Array.isArray(v)){const o={};for(const k in v)if(Object.prototype.hasOwnProperty.call(v,k))o[k]=!!v[k];return o;}
+  }catch(e){}
+  return {};
+}
+let lang=lsGet("de.lang");if(!L.includes(lang))lang=null;
+let size=lsGet("de.size");if(!["M","L","XL"].includes(size))size="M";
+let dry=lsGet("de.dry")==="1";
+let pulp=lsGet("de.pulp")==="1";
+let ticks=loadTicks();
 let docFilter="all";
 let planDay=null, planTier=null, hFilter=0;
 const li=()=>L.indexOf(lang);
 const tr=(k)=>k.split(".").reduce((o,p)=>o&&o[p],T[lang])||"";
 
-function setLang(l,fromPick){lang=l;localStorage.setItem("de.lang",l);document.getElementById("langpick").classList.remove("on");document.documentElement.lang=l==="ms"?"ms":l;render();}
+function setLang(l,fromPick){if(!L.includes(l))l="zh";lang=l;lsSet("de.lang",l);document.getElementById("langpick").classList.remove("on");document.documentElement.lang=l==="ms"?"ms":l;render();}
 function cycleLang(){setLang(L[(li()+1)%3]);}
-function cycleSize(){size=size==="M"?"L":size==="L"?"XL":"M";localStorage.setItem("de.size",size);applySize();}
+function cycleSize(){size=size==="M"?"L":size==="L"?"XL":"M";lsSet("de.size",size);applySize();}
 function applySize(){document.documentElement.dataset.size=size;}
 function go(v){document.querySelectorAll("section.view").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.id==="n-"+v));window.scrollTo(0,0);}
-function setDry(v){dry=v;localStorage.setItem("de.dry",v?"1":"0");renderDocs();}
-function setPulp(v){pulp=v;localStorage.setItem("de.pulp",v?"1":"0");renderDocs();}
-function resetDocs(){ticks={};localStorage.setItem("de.ticks","{}");renderDocs();}
+function setDry(v){dry=v;lsSet("de.dry",v?"1":"0");renderDocs();}
+function setPulp(v){pulp=v;lsSet("de.pulp",v?"1":"0");renderDocs();}
+function resetDocs(){ticks={};lsSet("de.ticks","{}");renderDocs();}
 
 function render(){
   const i=li();
@@ -368,18 +376,25 @@ function renderDocs(){
   document.getElementById("prog").style.width=(active.length?done/active.length*100:0)+"%";
   document.getElementById("progTxt").textContent=`${done} / ${active.length}`;
   const fs=[["all",ALLW[i]],["exp",BY.exp[i]],["gov",BY.gov[i]],["sf",BY.sf[i]]];
-  document.getElementById("docFilter").innerHTML=fs.map(f=>`<button class="${docFilter===f[0]?"on":""}" onclick="docFilter='${f[0]}';renderDocs()">${f[1]}</button>`).join("");
+  document.getElementById("docFilter").innerHTML=fs.map(f=>`<button data-fk="df:${f[0]}" class="${docFilter===f[0]?"on":""}" onclick="docFilter='${f[0]}';keepFocus(renderDocs)">${f[1]}</button>`).join("");
   const shown=active.filter(d=>docFilter==="all"||d.by===docFilter);
   document.getElementById("docList").innerHTML=shown.map(d=>{const k=key(d);const on=!!ticks[k];
-    return `<label class="chk ${on?"done":""}"><input type="checkbox" ${on?"checked":""} onchange="ticks['${k}']=this.checked;localStorage.setItem('de.ticks',JSON.stringify(ticks));renderDocs()"><div class="t"><b>${d.n[i]} <span class="tag ${d.by}">${BY[d.by][i]}</span>${d.cond?`<span class="tag cond">${d.cond==="dry"?(lang==="zh"?"含干冰":lang==="en"?"dry ice":"ais kering"):(lang==="zh"?"果肉/食品":lang==="en"?"pulp/food":"isi/makanan")}</span>`:""}</b><small>${d.a}${d.o?" · "+d.o[i]:""}</small></div></label>`;}).join("")||`<p class="note">—</p>`;
+    return `<label class="chk ${on?"done":""}"><input type="checkbox" data-fk="doc:${k}" ${on?"checked":""} onchange="tick('${k}',this.checked)"><div class="t"><b>${d.n[i]} <span class="tag ${d.by}">${BY[d.by][i]}</span>${d.cond?`<span class="tag cond">${d.cond==="dry"?(lang==="zh"?"含干冰":lang==="en"?"dry ice":"ais kering"):(lang==="zh"?"果肉/食品":lang==="en"?"pulp/food":"isi/makanan")}</span>`:""}</b><small>${d.a}${d.o?" · "+d.o[i]:""}</small></div></label>`;}).join("")||`<p class="note">—</p>`;
 }
 const key=d=>d.a+"|"+d.n[1];
+/* Re-render while keeping keyboard focus on the matching control (data-fk) */
+function keepFocus(fn){
+  const a=document.activeElement, fk=a&&a.dataset?a.dataset.fk:null;
+  fn();
+  if(fk){const e=[...document.querySelectorAll("[data-fk]")].find(x=>x.dataset.fk===fk);if(e)e.focus({preventScroll:true});}
+}
+function tick(k,v){ticks[k]=v;lsSet("de.ticks",JSON.stringify(ticks));keepFocus(renderDocs);}
 
 function renderPlan(){
   const i=li();
-  document.getElementById("dayBtns").innerHTML=DAYS.map((d,n)=>`<button class="${planDay===n?"on":""}" onclick="planDay=${n};renderPlan()">${d[i]}</button>`).join("");
+  document.getElementById("dayBtns").innerHTML=DAYS.map((d,n)=>`<button data-fk="day:${n}" class="${planDay===n?"on":""}" onclick="planDay=${n};keepFocus(renderPlan)">${d[i]}</button>`).join("");
   const tiers=[24,48,72,0];
-  document.getElementById("cityBtns").innerHTML=tiers.map(t=>`<button class="${planTier===t?"on":""}" onclick="planTier=${t};renderPlan()">${TIERW[t][i]}<small>${CITIES.filter(c=>c[2]===t).slice(0,4).map(c=>lang==="zh"?c[0]:c[1]).join(" · ")}${t===0?"…":""}</small></button>`).join("");
+  document.getElementById("cityBtns").innerHTML=tiers.map(t=>`<button data-fk="tier:${t}" class="${planTier===t?"on":""}" onclick="planTier=${t};keepFocus(renderPlan)">${TIERW[t][i]}<small>${CITIES.filter(c=>c[2]===t).slice(0,4).map(c=>lang==="zh"?c[0]:c[1]).join(" · ")}${t===0?"…":""}</small></button>`).join("");
   const out=document.getElementById("planOut");
   if(planDay===null||planTier===null){out.innerHTML=`<p class="note">${lang==="zh"?"选择交货日与目的地后显示估算。":lang==="en"?"Pick a handover day and a destination tier to see the estimate.":"Pilih hari serahan dan tahap destinasi untuk melihat anggaran."}</p>`;return;}
   let d=planDay, wait=0;
@@ -400,7 +415,7 @@ function renderPlan(){
 function renderCities(){
   const i=li();
   const fs=[[0,ALLW[i]],[24,"24H"],[48,"48H"],[72,"72H"]];
-  document.getElementById("hFilter").innerHTML=fs.map(f=>`<button class="${hFilter===f[0]?"on":""}" onclick="hFilter=${f[0]};renderCities()">${f[1]}</button>`).join("");
+  document.getElementById("hFilter").innerHTML=fs.map(f=>`<button data-fk="hf:${f[0]}" class="${hFilter===f[0]?"on":""}" onclick="hFilter=${f[0]};keepFocus(renderCities)">${f[1]}</button>`).join("");
   const q=(document.getElementById("citySearch").value||"").trim().toLowerCase();
   const list=CITIES.filter(c=>(!hFilter||c[2]===hFilter)&&(!q||c[0].includes(q)||c[1].toLowerCase().includes(q)));
   document.getElementById("cityGrid").innerHTML=list.map(c=>`<div class="city"><span>${lang==="zh"?c[0]:c[1]+"<br><small>"+c[0]+"</small>"}</span><span class="h${c[2]||''}">${c[2]?c[2]+"H":"3D"}</span></div>`).join("")||`<p class="note">—</p>`;
